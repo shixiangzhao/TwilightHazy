@@ -3,13 +3,23 @@
 var app = getApp()
 Page({
   data: {
-    motto: 'Hello World',
+    motto: '夜幕降临了，血色的夕阳消失于...',
+    scanInfo: '扫一扫',
     userInfo: {}
   },
   //事件处理函数
   bindViewTap: function() {
     wx.navigateTo({
       url: '../logs/logs'
+    })
+  },
+  //扫一扫
+  scanCodeView: function() {
+    wx.scanCode({
+      onlyFromCamera: true,
+      success: (res) => {
+        console.log(res);
+      }
     })
   },
   onLoad: function () {
